@@ -1,0 +1,85 @@
+<!doctype html>
+<html>
+<head>
+<template source='TPL:admin.common.head' />
+</head>
+<body>
+<div class="wrap">
+
+<!-- start -->
+<div class="nav">
+</div>
+
+<form method="post" class="J_ajaxForm" action="{@WindUrlHelper::createUrl('app/upyunupload/manage/doUpyun')}" data-role="list">
+    <div class="h_a">
+        又拍 UpYun 云存储附件助手设置 
+        <span>&nbsp&nbsp&nbsp</span>
+        <a href="https://www.upyun.com/intro/register.php?md=wp_upyun" target="_blank">[没有又拍云存储账号？点击免费注册]</a>
+        <span>&nbsp&nbsp&nbsp</span>
+        <a href="http://wiki.upyun.com/index.php?title=%E5%8F%88%E6%8B%8D%E4%BA%91%E5%AD%98%E5%82%A8%E9%99%84%E4%BB%B6%E5%8A%A9%E6%89%8B(PW)%E5%AE%89%E8%A3%85%E4%BD%BF%E7%94%A8%E6%89%8B%E5%86%8C" target="_blank">[安装使用手册]</a>
+    </div>
+	<div class="table_full">
+		<table width="100%">
+			<col class="th" />
+			<col width="400" />
+			<col />
+			<tr>
+				<th>是否开启附件助手功能</th>
+				<td>
+					<ul class="switch_list cc">
+						<li><label><input name="upOpen" value="1" type="radio" {@Pw::ifcheck($config['upyun.open']==1)}><span>开启</span></label></li>
+						<li><label><input name="upOpen" value="0" type="radio" {@Pw::ifcheck($config['upyun.open']==0)}><span>关闭</span></label></li>
+					</ul>
+				</td>
+				<td><div class="fun_tips">关闭云存储附件助手功能，默认切换到本地存储，如需设置成其他存储方案，请进入<a href="{@WindUrlHelper::createUrl('/config/attachment/storage')}">[附件存储方式设置]</a></div></td>
+			</tr>
+			<tr>
+				<th>API接入点</th>
+                <td>
+                    <select name="upAccess" class="select_5">
+                        <!--# foreach ($accessList as $value => $key): #-->
+                        <option value="{$value}" {@Pw::isSelected($config['upyun.access']==$value)}>{$key}</option>
+                        <!--# endforeach; #-->
+                    </select>
+                </td>
+				<td><div class="fun_tips">又拍云存储API目前提供了电信、联通网通、移动铁通三个接入点,默认参数为自动选择API接入点。但是我们推荐根据服务器网络状况，手动设置合理的接入点以获取最佳的访问速度<a href="{@G:url.extres}/upyunupload/ping/upyun_ping.php" target="_blank">[接入点测速]</a></div></td>
+			</tr>
+			<tr>
+				<th>远程附件访问域名</th>
+				<td><input name="upUrl" type="text" class="input length_5" value="{$config['upyun.url']}"></td>
+				<td><div class="fun_tips">填写云存储空间的默认域名或者绑定成功的域名，结尾不要加斜杠"/"，如:http://phpwind.b0.upaiyun.com</div></td>
+			</tr>
+			<tr>
+				<th>远程附件目录</th>
+				<td><input name="upDir" type="text" class="input length_5" value="{$config['upyun.dir']}"></td>
+				<td><div class="fun_tips">填写远程附件存储目录，开始和结尾都不要加"/"，如:attachment/upyun，留空为存放到远程空间根目录</div></td>
+			</tr>
+			<tr>
+				<th>空间名</th>
+				<td><input name="upBucket" type="text" class="input length_5" value="{$config['upyun.bucket']}"></td>
+				<td><div class="fun_tips">请使用文件类空间</div></td>
+			</tr>
+			<tr>
+				<th>操作员帐号</th>
+				<td><input name="upUser" type="text" class="input length_5" value="{$config['upyun.user']}"></td>
+				<td><div class="fun_tips">空间操作员帐号</div></td>
+			</tr>
+			<tr>
+				<th>操作员密码</th>
+				<td><input name="upPwd" type="password" class="input length_5"  value="{$config['upyun.pwd']}" autocomplete="off"></td>
+				<td><div class="fun_tips">空间操作员密码</div></td>
+			</tr>
+		</table>
+		</div>
+		<div class="btn_wrap">
+			<div class="btn_wrap_pd">
+				<button class="btn btn_submit mr10 J_ajax_submit_btn" type="submit">提交</button>
+			</div>
+		</div>
+</form>
+<!-- end -->
+
+</div>
+<template source='TPL:admin.common.footer' />
+</body>
+</html>

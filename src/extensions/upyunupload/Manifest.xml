@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest>
+	<application>
+	<name>又拍UpYun云存储附件助手</name>
+	<alias>upyunupload</alias>
+	<version>0.3</version>
+	<pw-version>9.0正式版</pw-version>
+	<description>又拍UpYun云存储官方插件。当前仅支持PW9.0正式版。使用又拍UpYun云存储附件助手 ，可以轻松把图片、文件等附件上传到又拍云存储空间，让显示和下载立刻提速，感受云存储带来的的高速，稳定和安全。</description>
+	<logo>images/UpYun.png</logo>
+	<type>app</type>
+	<charset>UTF-8</charset>
+	<website>https://www.upyun.com/</website>
+	<author-name>UpYun.com</author-name>
+	<author-email>faq@upyun.com</author-email>
+	<author-icon>your icon</author-icon>
+	</application>
+	<res>res</res>
+	<installation-service>
+	</installation-service>
+	<inject-services>
+	<s_admin_menu>
+	<upyunupload>
+	<class>EXT:upyunupload.service.srv.App_Upyunupload_ConfigDo</class>
+	<loadway>load</loadway>
+	<method>getAdminMenu</method>
+	<description>又拍UpYun云存储附件助手admin menu</description>
+	</upyunupload>
+	</s_admin_menu>
+	<s_PwStorage_getStorages>
+	<upyunupload>
+	<class>EXT:upyunupload.service.srv.App_Upyunupload_ConfigDo</class>
+	<loadway>load</loadway>
+	<method>changeStorage</method>
+	<description>change storage to UpYun</description>
+	</upyunupload>
+	</s_PwStorage_getStorages>
+	</inject-services>
+	</manifest>

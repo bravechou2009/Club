@@ -1,0 +1,97 @@
+<!--<?php
+include_once PrintEot('left');
+print <<<EOT
+-->
+<style type="text/css">
+<!--
+.STYLE2 {
+	font-size: 16px;
+	font-weight: bold;
+	color: #FF0000;
+}
+.STYLE3 {
+	font-size: 16px;
+	font-weight: bold;
+}
+-->
+</style>
+
+<table width="98%" align="center" cellspacing="1" cellpadding="3" class="i_table">
+<tr>
+  <td class="b"><b><a href="http://www.universityer.com" title="http://www.universityer.com"><font color=blue>Duanqiao</font></a> 出品 PHPwind专用百度 Sitemap 生成器</b></td>
+</tr>
+</table><br />
+
+<form action="$basename" method="post">
+<table width="98%" align="center" cellpadding="3" cellspacing="1" class="i_table">
+<tr class="head" align="center">
+<td colspan="2"><b>百度 Sitemap 参数设置（动态页面简易版）</b></td>
+</tr>
+<tr class="b">
+<td width="60%">  <strong>站点地址</strong>（本插件将自动获取您的站点地址，如有错误，请手动修改）</td>
+<td width="40%"><input size="35" value="$db_bbsurl" name="siteurl" />*</td>
+</tr>
+<tr class="b">
+<td><p><strong>站长邮箱</strong> （负责人员的Email。当有必要时，百度通过这个地址与您联系。）</p>  </td>
+<td><input size="35" value="$db_ceoemail" name="sitemaster" />*</td>
+</tr>
+<tr class="b">
+  <td><strong>更新周期</strong> （搜索引擎将遵照此周期访问该页面，使页面上的内容更及时地被百度 spider 发现。）</td>
+  <td><label>
+    <select name="updateper" size="1" id="select">
+      <option value="6">6小时</option>
+      <option value="12" selected="selected">12小时</option>
+      <option value="18">18小时</option>
+      <option value="24">24小时</option>
+      <option value="30">30小时</option>
+      <option value="36">36小时</option>
+      <option value="42">42小时</option>
+      <option value="48">48小时</option>
+      <option value="72">72小时</option>
+      <option value="168">1星期</option>
+      <option value="336">2星期</option>
+      <option value="720">1个月</option>
+        </select>
+  </label>*</td>
+</tr>
+<tr class="b">
+  <td><strong>论坛所使用程序的版本</strong>（请选择您正在使用的PHPwind的版本）</td>
+  <td><label>
+    <select name="siteversion" size="1" id="select1">
+      <option value="PHPwind5.0">PHPwind5.0</option>
+      <option value="PHPwind5.3">PHPwind5.3</option>
+      <option value="PHPwind6.0" selected="selected">PHPwind6.0</option>
+      <option value="PHPwind6.3">PHPwind6.3</option>
+        </select>
+  </label>*</td>
+</tr>
+<tr class="b">
+<td width="60%">  <strong>生成LINK数量</strong>（假设更新周期为12小时，则您每次只须提供最近12小时内发布及变更的帖子数量； 此外，由于XML文件的大小最大为10M，大于10M的文件百度spider将不能保证正确获取，因此建议最大输出数量应小于25000）</td>
+<td width="40%"><input size="35" value="1000" name="sumurl" />*</td>
+</tr>
+
+<tr class="b">
+<td width="60%">  <strong>回收站ID</strong>（系统默认为3，设置后，生成的Sitemap中将不再包含回收站的帖子！）</td>
+<td width="40%"><input size="8" value="$db_recycle" name="hszid" maxlength="3" />*</td>
+</tr>
+
+
+</table>
+<br /><center><input type="submit" value="开始生成 百度 Sitemap" /></center></form>
+<!--
+EOT;
+if($outsitemap){print <<<EOT
+-->
+<table width="98%" align="center" cellspacing="1" cellpadding="3" class="i_table">
+  <tr class="b">
+   <td>
+    <span class="STYLE2">生成</span> <a href="$outsitemap">$outsitemap</a> <span class="STYLE2">成功</span>（本XML文件共包含LINK <b><font color=blue>$totalnum</font></b> 条）
+   </td> 
+  </tr>
+ </table> 
+<!--
+EOT;
+}include_once PrintEot('adminbottom');
+?>-->
+  
+

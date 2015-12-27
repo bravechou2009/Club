@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest>
+	<application>
+		<name>七牛云存储</name>
+		<alias>qiniu</alias>
+		<version>1.0</version>
+		<pw-version>9.0</pw-version>
+		<description>可以将图片上传到七牛云存储，节省你的空间</description>
+		<logo>images/icon.jpg</logo>
+		<type>app</type>
+		<charset>UTF-8</charset>
+		<website>http://bbs.yhcms.com</website>
+		<author-name>芸烩工作室</author-name>
+		<author-email>89652519@qq.com</author-email>
+	</application>
+	<res>resource</res>
+	<inject-services>
+		<s_PwStorage_getStorages>
+			<app_qiniu>
+					<class>EXT:qiniu.service.srv.App_QiNiu_ConfigDo</class>
+					<loadway>load</loadway>
+					<method>changeStorage</method>
+					<description>change storage to qiniu</description>
+			</app_qiniu>
+		</s_PwStorage_getStorages>
+		<s_admin_menu>
+				<app_qiniu>
+					<class>EXT:qiniu.service.srv.App_QiNiu_Admin_MenuDo</class>
+					<loadway>load</loadway>
+					<method>app_QiNiuDo</method>
+					<description>七牛管理菜单</description>
+				</app_qiniu>
+		</s_admin_menu>
+	</inject-services>
+</manifest>
